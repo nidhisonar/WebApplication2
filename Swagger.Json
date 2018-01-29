@@ -3,7 +3,7 @@
 	"swagger": "2.0",
 	"info":
 	{
-		"version": "v1",
+		"version": "V1",
 		"title": "WebApplication2"
 	},
 	"host": "localhost:50694",
@@ -32,8 +32,7 @@
 							}
 						}
 					}
-				},
-				"deprecated": false
+				}
 			},
 			"post":
 			{
@@ -43,23 +42,13 @@
 				"produces": ["application/json", "text/json", "application/xml", "text/xml"],
 				"parameters": [
 					{
-						"name": "emp.employeeID",
-						"in": "query",
-						"required": false,
-						"type": "integer",
-						"format": "int32"
-					},
-					{
-						"name": "emp.employeeName",
-						"in": "query",
-						"required": false,
-						"type": "string"
-					},
-					{
-						"name": "emp.city",
-						"in": "query",
-						"required": false,
-						"type": "string"
+						"name": "emp",
+						"in": "body",
+						"required": true,
+						"schema":
+						{
+							"$ref": "#/definitions/Employee"
+						}
 					}
 				],
 				"responses":
@@ -69,11 +58,10 @@
 						"description": "OK",
 						"schema":
 						{
-							"$ref": "#/definitions/Object"
+							"type": "object"
 						}
 					}
-				},
-				"deprecated": false
+				}
 			}
 		},
 		"/api/Employee/{id}":
@@ -81,7 +69,7 @@
 			"get":
 			{
 				"tags": ["Employee"],
-				"operationId": "Employee_Get",
+				"operationId": "Employee_GetApiEmployeeById",
 				"consumes": [],
 				"produces": ["application/json", "text/json", "application/xml", "text/xml"],
 				"parameters": [
@@ -103,8 +91,7 @@
 							"type": "string"
 						}
 					}
-				},
-				"deprecated": false
+				}
 			},
 			"put":
 			{
@@ -136,8 +123,7 @@
 					{
 						"description": "No Content"
 					}
-				},
-				"deprecated": false
+				}
 			},
 			"delete":
 			{
@@ -160,8 +146,7 @@
 					{
 						"description": "No Content"
 					}
-				},
-				"deprecated": false
+				}
 			}
 		},
 		"/api/Values":
@@ -186,8 +171,7 @@
 							}
 						}
 					}
-				},
-				"deprecated": false
+				}
 			},
 			"post":
 			{
@@ -212,8 +196,7 @@
 					{
 						"description": "No Content"
 					}
-				},
-				"deprecated": false
+				}
 			}
 		},
 		"/api/Values/{id}":
@@ -221,7 +204,7 @@
 			"get":
 			{
 				"tags": ["Values"],
-				"operationId": "Values_Get",
+				"operationId": "Values_GetApiValuesById",
 				"consumes": [],
 				"produces": ["application/json", "text/json", "application/xml", "text/xml"],
 				"parameters": [
@@ -243,8 +226,7 @@
 							"type": "string"
 						}
 					}
-				},
-				"deprecated": false
+				}
 			},
 			"put":
 			{
@@ -276,8 +258,7 @@
 					{
 						"description": "No Content"
 					}
-				},
-				"deprecated": false
+				}
 			},
 			"delete":
 			{
@@ -300,8 +281,7 @@
 					{
 						"description": "No Content"
 					}
-				},
-				"deprecated": false
+				}
 			}
 		}
 	},
@@ -325,12 +305,19 @@
 				{
 					"type": "string"
 				}
+			},
+			"xml":
+			{
+				"name": "Employee"
 			}
-		},
-		"Object":
-		{
-			"type": "object",
-			"properties": {}
 		}
-	}
+	},
+	"tags": [
+		{
+			"name": "Employee"
+		},
+		{
+			"name": "Values"
+		}
+	]
 }
