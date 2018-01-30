@@ -1,1 +1,323 @@
-{"swagger":"2.0","info":{"version":"v1","title":"WebApplication2"},"host":"localhost:50694","schemes":["http"],"paths":{"/api/Employee":{"get":{"tags":["Employee"],"operationId":"Employee_Get","consumes":[],"produces":["application/json","text/json","application/xml","text/xml"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"type":"string"}}}},"deprecated":false},"post":{"tags":["Employee"],"operationId":"Employee_Post","consumes":[],"produces":["application/json","text/json","application/xml","text/xml"],"parameters":[{"name":"emp.employeeID","in":"query","required":false,"type":"integer","format":"int32"},{"name":"emp.employeeName","in":"query","required":false,"type":"string"},{"name":"emp.city","in":"query","required":false,"type":"string"}],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/Object"}}},"deprecated":false}},"/api/Employee/{id}":{"get":{"tags":["Employee"],"operationId":"Employee_Get","consumes":[],"produces":["application/json","text/json","application/xml","text/xml"],"parameters":[{"name":"id","in":"path","required":true,"type":"integer","format":"int32"}],"responses":{"200":{"description":"OK","schema":{"type":"string"}}},"deprecated":false},"put":{"tags":["Employee"],"operationId":"Employee_Put","consumes":["application/json","text/json","application/xml","text/xml","application/x-www-form-urlencoded"],"produces":[],"parameters":[{"name":"id","in":"path","required":true,"type":"integer","format":"int32"},{"name":"value","in":"body","required":true,"schema":{"type":"string"}}],"responses":{"204":{"description":"No Content"}},"deprecated":false},"delete":{"tags":["Employee"],"operationId":"Employee_Delete","consumes":[],"produces":[],"parameters":[{"name":"id","in":"path","required":true,"type":"integer","format":"int32"}],"responses":{"204":{"description":"No Content"}},"deprecated":false}},"/api/Values":{"get":{"tags":["Values"],"operationId":"Values_Get","consumes":[],"produces":["application/json","text/json","application/xml","text/xml"],"responses":{"200":{"description":"OK","schema":{"type":"array","items":{"type":"string"}}}},"deprecated":false},"post":{"tags":["Values"],"operationId":"Values_Post","consumes":["application/json","text/json","application/xml","text/xml","application/x-www-form-urlencoded"],"produces":[],"parameters":[{"name":"value","in":"body","required":true,"schema":{"type":"string"}}],"responses":{"204":{"description":"No Content"}},"deprecated":false}},"/api/Values/{id}":{"get":{"tags":["Values"],"operationId":"Values_Get","consumes":[],"produces":["application/json","text/json","application/xml","text/xml"],"parameters":[{"name":"id","in":"path","required":true,"type":"integer","format":"int32"}],"responses":{"200":{"description":"OK","schema":{"type":"string"}}},"deprecated":false},"put":{"tags":["Values"],"operationId":"Values_Put","consumes":["application/json","text/json","application/xml","text/xml","application/x-www-form-urlencoded"],"produces":[],"parameters":[{"name":"id","in":"path","required":true,"type":"integer","format":"int32"},{"name":"value","in":"body","required":true,"schema":{"type":"string"}}],"responses":{"204":{"description":"No Content"}},"deprecated":false},"delete":{"tags":["Values"],"operationId":"Values_Delete","consumes":[],"produces":[],"parameters":[{"name":"id","in":"path","required":true,"type":"integer","format":"int32"}],"responses":{"204":{"description":"No Content"}},"deprecated":false}}},"definitions":{"Employee":{"type":"object","properties":{"EmployeeID":{"format":"int32","type":"integer"},"EmployeeName":{"type":"string"},"City":{"type":"string"}}},"Object":{"type":"object","properties":{}}}}
+
+{
+	"swagger": "2.0",
+	"info":
+	{
+		"version": "V1",
+		"title": "WebApplication2"
+	},
+	"host": "localhost:50694",
+	"schemes": ["http"],
+	"paths":
+	{
+		"/api/Employee":
+		{
+			"get":
+			{
+				"tags": ["Employee"],
+				"operationId": "Employee_Get",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "application/xml", "text/xml"],
+				"responses":
+				{
+					"200":
+					{
+						"description": "OK",
+						"schema":
+						{
+							"type": "array",
+							"items":
+							{
+								"type": "string"
+							}
+						}
+					}
+				}
+			},
+			"post":
+			{
+				"tags": ["Employee"],
+				"operationId": "Employee_Post",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "application/xml", "text/xml"],
+				"parameters": [
+					{
+						"name": "emp",
+						"in": "body",
+						"required": true,
+						"schema":
+						{
+							"$ref": "#/definitions/Employee"
+						}
+					}
+				],
+				"responses":
+				{
+					"200":
+					{
+						"description": "OK",
+						"schema":
+						{
+							"type": "object"
+						}
+					}
+				}
+			}
+		},
+		"/api/Employee/{id}":
+		{
+			"get":
+			{
+				"tags": ["Employee"],
+				"operationId": "Employee_GetApiEmployeeById",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "application/xml", "text/xml"],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses":
+				{
+					"200":
+					{
+						"description": "OK",
+						"schema":
+						{
+							"type": "string"
+						}
+					}
+				}
+			},
+			"put":
+			{
+				"tags": ["Employee"],
+				"operationId": "Employee_Put",
+				"consumes": ["application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"],
+				"produces": [],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "value",
+						"in": "body",
+						"required": true,
+						"schema":
+						{
+							"type": "string"
+						}
+					}
+				],
+				"responses":
+				{
+					"204":
+					{
+						"description": "No Content"
+					}
+				}
+			},
+			"delete":
+			{
+				"tags": ["Employee"],
+				"operationId": "Employee_Delete",
+				"consumes": [],
+				"produces": [],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses":
+				{
+					"204":
+					{
+						"description": "No Content"
+					}
+				}
+			}
+		},
+		"/api/Values":
+		{
+			"get":
+			{
+				"tags": ["Values"],
+				"operationId": "Values_Get",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "application/xml", "text/xml"],
+				"responses":
+				{
+					"200":
+					{
+						"description": "OK",
+						"schema":
+						{
+							"type": "array",
+							"items":
+							{
+								"type": "string"
+							}
+						}
+					}
+				}
+			},
+			"post":
+			{
+				"tags": ["Values"],
+				"operationId": "Values_Post",
+				"consumes": ["application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"],
+				"produces": [],
+				"parameters": [
+					{
+						"name": "value",
+						"in": "body",
+						"required": true,
+						"schema":
+						{
+							"type": "string"
+						}
+					}
+				],
+				"responses":
+				{
+					"204":
+					{
+						"description": "No Content"
+					}
+				}
+			}
+		},
+		"/api/Values/{id}":
+		{
+			"get":
+			{
+				"tags": ["Values"],
+				"operationId": "Values_GetApiValuesById",
+				"consumes": [],
+				"produces": ["application/json", "text/json", "application/xml", "text/xml"],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses":
+				{
+					"200":
+					{
+						"description": "OK",
+						"schema":
+						{
+							"type": "string"
+						}
+					}
+				}
+			},
+			"put":
+			{
+				"tags": ["Values"],
+				"operationId": "Values_Put",
+				"consumes": ["application/json", "text/json", "application/xml", "text/xml", "application/x-www-form-urlencoded"],
+				"produces": [],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "value",
+						"in": "body",
+						"required": true,
+						"schema":
+						{
+							"type": "string"
+						}
+					}
+				],
+				"responses":
+				{
+					"204":
+					{
+						"description": "No Content"
+					}
+				}
+			},
+			"delete":
+			{
+				"tags": ["Values"],
+				"operationId": "Values_Delete",
+				"consumes": [],
+				"produces": [],
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					}
+				],
+				"responses":
+				{
+					"204":
+					{
+						"description": "No Content"
+					}
+				}
+			}
+		}
+	},
+	"definitions":
+	{
+		"Employee":
+		{
+			"type": "object",
+			"properties":
+			{
+				"EmployeeID":
+				{
+					"format": "int32",
+					"type": "integer"
+				},
+				"EmployeeName":
+				{
+					"type": "string"
+				},
+				"City":
+				{
+					"type": "string"
+				}
+			},
+			"xml":
+			{
+				"name": "Employee"
+			}
+		}
+	},
+	"tags": [
+		{
+			"name": "Employee"
+		},
+		{
+			"name": "Values"
+		}
+	]
+}
